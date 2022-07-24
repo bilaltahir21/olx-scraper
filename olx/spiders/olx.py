@@ -1,6 +1,6 @@
 import scrapy
 
-class PeterParkerSpider(scrapy.Spider):
+class OLXSpider(scrapy.Spider):
     name = "olx"
 
     def start_requests(self):
@@ -22,7 +22,7 @@ class PeterParkerSpider(scrapy.Spider):
             yield {"image_url":image_url, "title":title, "price":price, "location":location, "last_updated":last_updated}
 
         next_page = response.css("a._95dae89d::attr(href)").get()
-        print(next_page)
         if next_page is not None:
             next_page = response.urljoin(next_page)
             yield scrapy.Request(url=next_page, callback=self.parse)
+            

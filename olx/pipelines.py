@@ -8,6 +8,6 @@
 from itemadapter import ItemAdapter
 
 
-class TutorialPipeline:
+class OlxPipeline:
     def process_item(self, item, spider):
         return item
